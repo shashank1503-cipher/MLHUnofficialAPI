@@ -1,5 +1,5 @@
 ## Scrapers for PartnersInCrime
-Added MLH scraper to scrape hackathons from MLH's website for 2022 season. The code currently works on my PC only. ¯\_(ツ)_/¯. To make it work on your PC too, go through the following instructions.
+Added MLH scraper to scrape hackathons from MLH's website for 2022 season. The code currently works on my PC only. To make it work on your PC too, go through the following instructions.
 
 ## Instructions
 - Install Dependencies using following command 
