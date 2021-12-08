@@ -3,7 +3,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-def getDetails(html):
+import AddToDB
+def getDetails(html,year):
     hackDic = {}
     soup = BeautifulSoup(html, "html.parser")
     eventLink = soup.a['href']
@@ -21,9 +22,16 @@ def getDetails(html):
     hackDic['eventLocation']= eventLocation
     eventNotes = soup.find(class_="event-hybrid-notes").text
     hackDic['eventNotes']= eventNotes.strip()
+    hackDic['year'] = year
     return hackDic
+def db(hackathons):
+    for i in hackathons:
+        if (AddToDB.fetchCountFromDb({'eventLink' : i['eventLink']})) == 1:
+            AddToDB.addToDB(i)
+
+        
 if __name__ == "__main__":
-    URL = "https://mlh.io/seasons/2022/events"
+    URL = "https://mlh.io/seasons/2021/events"
     driver = webdriver.Chrome('C:/bin/chromedriver') 
     driver.get(URL)
 
@@ -33,11 +41,11 @@ if __name__ == "__main__":
 
     soup = BeautifulSoup(html, "html.parser")
     results = soup.find_all(class_ = "event-link")
-    
     hackathons = []
     hackathonDetails = []
     for result in results:
         hackathons.append(result.prettify())
     for i in hackathons:
-        hackathonDetails.append(getDetails(i))
+        hackathonDetails.append(getDetails(i,'2021'))
     print(hackathonDetails)
+    db(hackathonDetails)  
