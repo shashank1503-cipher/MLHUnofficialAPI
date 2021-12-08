@@ -1,4 +1,5 @@
 beautifulsoup4==4.10.0
 requests==2.26.0
 selenium==3.141.0
-fastapi
+fastapi==0.70.0
+pymongo==4.0
