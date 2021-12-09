@@ -16,4 +16,5 @@ Stored the scraped data in MongoDB using pymongo and fetch data using FastAPI. W
 - Good to go now
 
 ## Work Under Progress
-Soon I will deploy this scraper as an API so that there is no need for above instructions.
+API will be deployed soon
+
