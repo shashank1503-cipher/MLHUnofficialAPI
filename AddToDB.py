@@ -11,6 +11,12 @@ def addToDB(event):
 def fetchCountFromDb(event):
     x = events.count_documents(event)
     return x
+def delete(query):
+    try:
+        events.delete_one(query)
+        print("Deleted")
+    except:
+        print("Error")
 def fetchFromDb(query):
     x = events.find(query,{'_id':False})
     objects = []
