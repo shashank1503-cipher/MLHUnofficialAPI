@@ -1,4 +1,5 @@
 import pymongo
+import os
 client = pymongo.MongoClient(f'mongodb+srv://{os.environ.get("password")}@cluster0.plg8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 db = client.HackathonEvents
 events = db.MLH
