@@ -1,5 +1,5 @@
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://shashank1503:10july1971@cluster0.plg8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE")
+client = pymongo.MongoClient(f'mongodb+srv://{os.environ.get("password")}@cluster0.plg8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 db = client.HackathonEvents
 events = db.MLH
 def addToDB(event):
