@@ -23,6 +23,3 @@ GET /name/{name}
 ```
 
 Returns all the hackathons having that name.
-
-
-
